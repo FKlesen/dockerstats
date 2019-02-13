@@ -26,9 +26,9 @@ public class DockerStats {
 		
 		String line;
 		while((line = input.readLine()) != null) {
-			System.out.println(line); // debug
+//			System.out.println(line); // debug
 			Container test = new ObjectMapper().readerFor(Container.class).readValue(line);
-			System.out.println(test.getCpu_perc()); // debug
+			System.out.println(test.getName() + ": " + test.getCpu_perc()); // debug
 		}
 	}
 
