@@ -1,7 +1,11 @@
 package com.aht.dockerstats;
 
-public class Container {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Container implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private String name;
 	private String memory;
@@ -10,7 +14,12 @@ public class Container {
 	private String net_io;
 	private String block_io;
 	private int pids;
+	private ArrayList<PortMapping> portmappings;
 	
+	public Container() {
+		super();
+		this.portmappings = new ArrayList<PortMapping>();
+	}
 	
 	public String getId() {
 		return id;
@@ -59,6 +68,15 @@ public class Container {
 	}
 	public void setPids(int pids) {
 		this.pids = pids;
+	}
+	public ArrayList<PortMapping> getPortmappings() {
+		return portmappings;
+	}
+	public void setPortmappings(ArrayList<PortMapping> portmappings) {
+		this.portmappings = portmappings;
+	}
+	public void addPortmapping(PortMapping portmapping) {
+		this.portmappings.add(portmapping);
 	}
 
 }
